@@ -1,4 +1,9 @@
+import styles from './home.module.scss'
 
-export default function App () {
-  return <h1>Hellow</h1>
+export default function Home() {
+  return (
+    <div className={styles.container}>
+    <h1>Hellow</h1>
+    </div>
+    )
 }
