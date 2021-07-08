@@ -5,8 +5,7 @@ export function Leftbar() {
     <div className={styles.container}>
       <div className={styles.home}>
         <a href="">
-          HO <br />
-          ME
+          HO <br/>ME
         </a>
       </div>
       <div className={styles.sources}>
