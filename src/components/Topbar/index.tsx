@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import styles from './styles.module.scss'
 
 export function Topbar() {
@@ -5,20 +7,26 @@ export function Topbar() {
     <div className={styles.container}>
       <ul>
         <li>
-          <a href="">
+          <Link href="/">
+          <a >
             HOME
           <div className={styles.selected} />
           </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+        <Link href="/project">
+          <a>
             PROJECT
           </a>
+        </Link>
         </li>
         <li>
-          <a href="">
+          <Link href="about">
+          <a>
             ABOUT
           </a>
+          </Link>
         </li>
       </ul>
     </div>
