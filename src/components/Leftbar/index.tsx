@@ -9,7 +9,7 @@ export function Leftbar() {
         </a>
       </div>
       <div className={styles.sources}>
-        <a href="maito:allanvictor.almeida@gmail.com">
+        <a href="mailto:allanvictor.almeida@gmail.com">
           <img src="/email.svg" alt="email" />
         </a>
         <a href="https://github.com/BecomeAllan">
