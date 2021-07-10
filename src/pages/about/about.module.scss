@@ -1,0 +1,154 @@
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+
+  .about {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 60 40%;
+
+    h1 {
+      color: #fff;
+    }
+    h2 {
+      color: #000;
+    }
+    h3 {
+      color: #000;
+    }
+    p {
+      color: #989898;
+    }
+
+    .line {
+      border: 1px solid #000;
+    }
+
+    .experienceCard {
+      grid-row: 1;
+      grid-column: 1;
+
+      .experience{
+        & > .line {
+          border: 2px solid #3E3E3E;
+        }
+      }
+    }
+    .curseCard {
+      grid-row: 1;
+      grid-column: 2;
+
+      .curse{
+        & > .line {
+          border: 2px solid #3E3E3E;
+        }
+      }
+    }
+    .contactCard {
+      grid-row: 2;
+      grid-column: 1 / span 2;
+
+      .contact{
+        & > .line {
+          border: 2px solid #3E3E3E;
+        }
+      }
+    }
+
+  }
+
+  .webbook {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > h1 {
+      color: #585858;
+    }
+    & > p {
+      color: #989898;
+      text-align: center;
+    }
+
+    .searchTag {
+      display: grid;
+      grid-template-columns: 75% 25%;
+      grid-row: 95% auto;
+
+      & > input {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      & > img {
+        grid-column: 2;
+        grid-row: 1;
+        width: 26px;
+        height: 26px;
+        justify-self: flex-end;
+        padding-right: 10px;
+
+        filter: invert(54%) sepia(10%) saturate(17%) hue-rotate(352deg) brightness(99%) contrast(91%);
+      }
+      .lineSearch {
+        border: 1px solid #fff;
+        grid-column: 1 / span 2;
+        grid-row: 2;
+      }
+    }
+
+    .projectcard {
+      overflow-y: scroll;
+      
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+
+
+
+       h1 {
+        font: "Secular One";
+        color: #fff;
+        font-size: 20px;
+      }
+       h6 {
+        font-size: 8px;
+        color: #4E4E4E;
+      }
+        h2 {
+        color: #868686;
+        font-size: 12px;
+       }
+        h5 {
+        color: #505050;
+        font-size: 10px;
+       }
+
+      .cardSearchSelected {
+        margin: 20px 0 0 0;
+        background: #212121;
+        display: flex;
+        flex-direction: column;
+        min-width: 275px;
+        min-height: 100px;
+        
+      }
+      
+      .cardSearch {
+        margin: 20px 0 0 0;
+        background: #000000;
+        display: flex;
+        flex-direction: column;
+        background: #000000;
+        min-width: 275px;
+        min-height: 100px;
+        
+        
+      }
+    }
+
+  }
+
+}
