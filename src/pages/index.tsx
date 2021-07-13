@@ -4,9 +4,9 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.home}>
-        <h3>HI, I’AM  </h3>
+        <h3>HI, I’AM</h3>
         <h2>ALLAN</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum pulvinar ex condimentum tincidunt. Sed sed magna lorem. Aenean lorem risus, aliquam ut rutrum vitae, tempus a mi.</p>
+        <p>I'm a stats student who loves code and math, which provides innovative ideas about our world. </p>
         <h1>programming <br /> skills</h1>
       </div>
 
@@ -33,8 +33,8 @@ export default function Home() {
         <div className={styles.introConteiner}>
           <h1>Python</h1>
           <h2>test</h2>
-          <p>palavras efsadfdasfsadfdasfsdafdasfsadfdasfsdafsadfsadfdasfsdafdasfsadfds
-            palavras<br /><br />palavras efsadfdasfsadfdasfsdafdasfsadfdasfsdafsadfsadfdasfsdafdasfsadfds
+          <p>palavras efsadfdasfs adfdasf sdafdasf sadfdasfsd afsad fsadfdasf sdafdasfsa dfds
+            palavras<br /><br />palavras efsadfd asfsadfd asfsdaf dasfsa dfdasfsdaf sad fsadfd asfsdafdasf sadfds
             palavras</p>
         </div>
 
