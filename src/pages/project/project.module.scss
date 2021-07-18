@@ -18,10 +18,18 @@
       padding-bottom: 20px;
       color: #ffffff;
       text-align: center;
+
       font-size: 48px;
       letter-spacing: 0.055em;
       text-transform: uppercase;
       font-family: "Secular One";
+
+      text-align: center;
+      word-break: break-all;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // overflow-wrap: break-word;
     }
 
     .card {
@@ -44,6 +52,14 @@
           letter-spacing: 0.055em;
           text-transform: uppercase;
           color: #4e4e4e;
+          padding-right: 20px;
+
+          // white-space: nowrap;
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+          // overflow-wrap: break-word;
+          text-align: justify;
+          word-break: break-all;
         }
         .date {
           letter-spacing: 0.055em;
@@ -52,7 +68,7 @@
         }
       }
       .bodyCard {
-        height: 100%;
+        // height: 100%;
         padding-bottom: 20px;
 
         .description {
@@ -64,6 +80,14 @@
           font-size: 22px;
           line-height: 26px;
           letter-spacing: 0.055em;
+
+          word-break: break-all;
+          text-align: justify;
+
+          // white-space: nowrap;
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+          // overflow-wrap: break-word;
         }
         .tag {
           letter-spacing: 0.055em;
@@ -73,6 +97,14 @@
           line-height: 12px;
           color: #000;
           padding-bottom: 5px;
+
+          word-break: break-all;
+          text-align: justify;
+
+          // white-space: nowrap;
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+          // overflow-wrap: break-word;
         }
         .line {
           align-self: center;
@@ -85,6 +117,12 @@
           font-weight: 900;
           font-size: 16px;
           line-height: 19px;
+
+          word-break: break-all;
+          // white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          overflow-wrap: break-word;
         }
       }
     }
@@ -180,6 +218,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        height: fit-content;
+        
         .laguageSearch {
           white-space: nowrap;
           overflow: hidden;
@@ -188,18 +228,25 @@
           padding-bottom: 5px;
         }
       }
-
+      
       .titleSearch {
+        height: max-content;
+        margin-bottom: 10px;
+
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
       .descriptionSearch {
-        height: 40%;
-        margin-top: 10px;
+        height: 40px;
+        // margin-top: 10px;
+
+        text-align: justify;
         overflow-wrap: break-word;
         overflow: hidden;
         text-overflow: ellipsis;
+        word-break: break-all
       }
 
       .tagSearch {
