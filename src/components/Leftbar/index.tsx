@@ -1,12 +1,17 @@
+
+import Link from 'next/link'
+
 import styles from './styles.module.scss'
 
 export function Leftbar() {
   return (
     <div className={styles.container}>
       <div className={styles.home}>
-        <a href="/">
+        <Link href="/">
+        <a>
           HO <br/>ME
         </a>
+        </Link>
       </div>
       <div className={styles.sources}>
         <a href="mailto:allanvictor.almeida@gmail.com">
