@@ -40,17 +40,19 @@
         .notSelected {
           background-color: rgba(255, 255, 255, 0);
           animation-name: NotSelected;
-          animation-duration: 1s;
+          animation-duration: 0.5s;
         }
 
         @keyframes NotSelected {
           from {
             background-color: rgba(255, 255, 255, 0.8);
             width: 160%;
+            transform: translateY(0px);
           }
           to {
             background-color: rgba(255, 255, 255, 0);
             width: 25%;
+            transform: translateY(10px);
           }
         }
 

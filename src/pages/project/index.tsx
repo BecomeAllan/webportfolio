@@ -1,6 +1,7 @@
 import styles from './project.module.scss'
 import { Card } from '../../components/Card'
 import { useState } from 'react'
+import Head from 'next/head'
 
 export default function Project() {
   const [selected, setSelected] = useState(0)
@@ -11,6 +12,11 @@ export default function Project() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>
+          BecomeAllan | Project
+        </title>
+      </Head>
       <div className={styles.project}>
         <h1>Title Coisas, coiasss,cdjojdaosaodjaKdasjf</h1>
         <div className={styles.card}>
@@ -40,9 +46,9 @@ export default function Project() {
 
         <div className={styles.projectcard}>
 
-          <Card value = {0} selected={selected} onChange={funSelected}/>
-          <Card value = {1} selected={selected} onChange={funSelected}/>
-          <Card value = {2} selected={selected} onChange={funSelected}/>
+          <Card value={0} selected={selected} onChange={funSelected} />
+          <Card value={1} selected={selected} onChange={funSelected} />
+          <Card value={2} selected={selected} onChange={funSelected} />
 
         </div>
 

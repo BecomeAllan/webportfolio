@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 
 import { useState } from 'react'
 import styles from './home.module.scss'
+import Head from 'next/head'
 
 type Infos = {
   index: number
@@ -17,13 +18,18 @@ type HomeProps = {
 }
 
 export default function Home({ infos }: HomeProps) {
-  console.log(infos);
+  // console.log(infos);
 
 
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(1)
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>
+          BecomeAllan | Home
+        </title>
+      </Head>
       <div className={styles.home}>
         <h3>HI, I’AM</h3>
         <h2>ALLAN</h2>
@@ -35,9 +41,12 @@ export default function Home({ infos }: HomeProps) {
 
         <div className={styles.cardConteiner}>
 
-          {infos.map(info => {
+          {infos.map((info, key) => {
             return (
-              <div onClick={() => setSelected(info.index)} className={selected === info.index ? styles.cardSelect : styles.card}>
+              <div
+                key={info.title}
+                onClick={() => setSelected(key)}
+                className={selected === key ? styles.cardSelect : styles.card}>
                 <h2>{info.title}</h2>
                 <p>{info.intro}</p>
                 <img src={`${info.title}.svg`} alt={`${info.title}`} />
@@ -48,11 +57,19 @@ export default function Home({ infos }: HomeProps) {
         </div>
 
         <div className={styles.introConteiner}>
-          <h1>Python</h1>
-          <h2>test</h2>
-          <p>palavras efsadfdasfs adfdasf sdafdasf sadfdasfsd afsad fsadfdasf sdafdasfsa dfds
-            palavras<br /><br />palavras efsadfd asfsadfd asfsdaf dasfsa dfdasfsdaf sad fsadfd asfsdafdasf sadfds
-            palavras</p>
+          <h1>{infos[selected].title}</h1>
+          <h2>{infos[selected].description}</h2>
+          {infos[selected].text.split('\n').map((text, key) => {
+            return (
+              <span key={key * 3}>
+                {text}
+                < br />
+                < br />
+              </span> 
+            )
+          })}
+
+
         </div>
 
       </div>
@@ -63,11 +80,12 @@ export default function Home({ infos }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const { data } = await api.get('home.json')
+  // const { data } = await api.get('home.json')
+  const { data } = await api.get('info')
 
-  const datainfo = data.info
+  // const datainfo = data.info
 
-  const infos = datainfo.map((info: Infos) => {
+  const infos = data.map((info: Infos) => {
     return {
       index: info.index,
       title: info.title,

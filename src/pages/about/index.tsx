@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState } from 'react'
 import { Card } from '../../components/Card'
 import styles from './about.module.scss'
@@ -9,9 +10,14 @@ export default function About() {
   function funSelected(value: number) {
     setSelected(value)
   }
-  
+
   return (
     <div className={styles.container}>
+      <Head>
+        <title>
+          BecomeAllan | About
+        </title>
+      </Head>
 
       <div className={styles.about}>
         <div className={styles.experienceCard}>

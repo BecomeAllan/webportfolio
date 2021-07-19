@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 
-  grid-template-rows: 50% 50%;
+  // grid-template-rows: 50% 50%;
   height: 100%;
   width: 100%;
 
@@ -64,7 +64,7 @@
     padding-top: 20px;
     height: 100%;
     z-index: 1;
-    grid-row: 2;
+    // grid-row: 2;
     // min-height: 225px;
     max-height: 100%;
     background: rgba(255, 255, 255, 0.2);
@@ -76,7 +76,7 @@
 
     .cardConteiner {
       height: 100%;
-      grid-column: 1;
+      // grid-column: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -112,6 +112,7 @@
           height: auto;
 
           color: #989898;
+          // word-break: break-all;
         }
 
         & > img {
@@ -151,8 +152,8 @@
     }
 
     .introConteiner {
-      max-width: 450px;
-      grid-column: 2;
+      width: 450px;
+      // grid-column: 2;
       height: 100%;
       margin-left: 100px;
 
@@ -165,24 +166,26 @@
         text-align: center;
         text-transform: uppercase;
         font-size: 48px;
-        padding-top: 20px;
+        // padding-top: px;
       }
 
       & > h2 {
         color: #ededed;
-        margin: 10px 0;
-        font-size: 25px;
+        margin: 15px 0;
+        font-size: 17px;
+        line-height: 17px;
+        text-align: justify;
+        align-items: center;
+        // word-break: break-all;
+      }
+
+      & > span {
+        color: #989898;
+        font-size: 14px;
         line-height: 16px;
         text-align: justify;
         align-items: center;
-      }
-
-      & > p {
-        color: #989898;
-        font-size: 15px;
-        line-height: 15px;
-        text-align: justify;
-        align-items: center;
+        // word-break: break-all;
       }
     }
   }
