@@ -1,7 +1,25 @@
+import { api } from '../../services/api'
+import { GetStaticProps } from 'next'
+
 import { useState } from 'react'
 import styles from './home.module.scss'
 
-export default function Home() {
+type Infos = {
+  index: number
+  title: string
+  intro: string
+  description: string
+  text: string
+}
+
+type HomeProps = {
+  infos: Infos[]
+}
+
+export default function Home({ infos }: HomeProps) {
+  console.log(infos);
+
+
   const [selected, setSelected] = useState(0)
 
   return (
@@ -16,21 +34,17 @@ export default function Home() {
       <div className={styles.skill}>
 
         <div className={styles.cardConteiner}>
-          <div onClick={()=> setSelected(0)} className={selected===0 ?styles.cardSelect:styles.card}>
-            <h2>python</h2>
-            <p>alskfldsfladsflsdakflskadlfkdsalfksa</p>
-            <img src="python.svg" alt="PY" />
-          </div>
-          <div onClick={()=> setSelected(1)} className={selected===1 ?styles.cardSelect:styles.card}>
-            <h2>R</h2>
-            <p>alskfldsfladsflsdakflskadlfkdsalfksa</p>
-            <img src="R_logo.svg" alt="R" />
-          </div>
-          <div onClick={()=> setSelected(2)} className={selected===2 ?styles.cardSelect:styles.card}>
-            <img src="javascript.svg" alt="JS" />
-            <h2>Javascript</h2>
-            <p>alskfldsfladsflsdakflskadlfkdsalfksa</p>
-          </div>
+
+          {infos.map(info => {
+            return (
+              <div onClick={() => setSelected(info.index)} className={selected === info.index ? styles.cardSelect : styles.card}>
+                <h2>{info.title}</h2>
+                <p>{info.intro}</p>
+                <img src={`${info.title}.svg`} alt={`${info.title}`} />
+              </div>
+            )
+          })}
+
         </div>
 
         <div className={styles.introConteiner}>
@@ -44,4 +58,29 @@ export default function Home() {
       </div>
     </div>
   )
+}
+
+
+export const getStaticProps: GetStaticProps = async () => {
+
+  const { data } = await api.get('home.json')
+
+  const datainfo = data.info
+
+  const infos = datainfo.map((info: Infos) => {
+    return {
+      index: info.index,
+      title: info.title,
+      intro: info.intro,
+      description: info.description,
+      text: info.text
+    }
+  })
+
+  return {
+    props: { // passada em HOME(props)
+      infos
+    },
+    revalidate: 10 // segundos
+  }
 }
