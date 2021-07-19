@@ -10,7 +10,7 @@ import styles from './styles.module.scss'
 export function Topbar() {
   const router = useRouter();
 
-  console.log(router.pathname);
+  // console.log(router.pathname);
 
   return (
     <div className={styles.container}>

@@ -1,7 +1,15 @@
+import { useState } from 'react'
+import { Card } from '../../components/Card'
 import styles from './about.module.scss'
 
 
-export default function Project() {
+export default function About() {
+  const [selected, setSelected] = useState(0)
+
+  function funSelected(value: number) {
+    setSelected(value)
+  }
+  
   return (
     <div className={styles.container}>
 
@@ -67,73 +75,11 @@ export default function Project() {
 
         <div className={styles.projectcard}>
 
-          <div className={styles.cardSearch}>
+          <Card value={5} selected={selected} onChange={funSelected} />
+          <Card value={6} selected={selected} onChange={funSelected} />
+          <Card value={7} selected={selected} onChange={funSelected} />
 
-            <div className={styles.topCardSearch}>
-              <h6 className={styles.laguageSearch}>python, javascriptaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h6>
-              <h6 className={styles.dateSearch}>00/00/00</h6>
-            </div>
-
-            <h1 className={styles.titleSearch}>Title</h1>
-            <h2 className={styles.descriptionSearch}>Kdasjfosdfksadofsdkfosdgksdoafksf</h2>
-            <h5 className={styles.tagSearch}># Coisas, coiasss</h5>
-
-          </div>
-          <div className={styles.cardSearch}>
-
-            <div className={styles.topCardSearch}>
-              <h6 className={styles.laguageSearch}>python, javascriptaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h6>
-              <h6 className={styles.dateSearch}>00/00/00</h6>
-            </div>
-
-            <h1 className={styles.titleSearch}>Title</h1>
-            <h2 className={styles.descriptionSearch}>Kdasjfosdfksadofsdkfosdgksdoafksf</h2>
-            <h5 className={styles.tagSearch}># Coisas, coiasss</h5>
-
-          </div>
-          <div className={styles.cardSearch}>
-
-            <div className={styles.topCardSearch}>
-              <h6 className={styles.laguageSearch}>python, javascriptaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h6>
-              <h6 className={styles.dateSearch}>00/00/00</h6>
-            </div>
-
-            <h1 className={styles.titleSearch}>Title</h1>
-            <h2 className={styles.descriptionSearch}>Kdasjfosdfksadofsdkfosdgksdoafksf</h2>
-            <h5 className={styles.tagSearch}># Coisas, coiasss</h5>
-
-          </div>
-          <div className={styles.cardSearch}>
-
-            <div className={styles.topCardSearch}>
-              <h6 className={styles.laguageSearch}>python, javascriptaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h6>
-              <h6 className={styles.dateSearch}>00/00/00</h6>
-            </div>
-
-            <h1 className={styles.titleSearch}>Title</h1>
-            <h2 className={styles.descriptionSearch}>Kdasjfosdfksadofsdkfosdgksdoafksf</h2>
-            <h5 className={styles.tagSearch}># Coisas, coiasss</h5>
-
-          </div>
-
-          <div className={styles.cardSearchSelected}>
-
-            <div className={styles.topCardSearch}>
-              <h6 className={styles.laguageSearch}>python, javascript</h6>
-              <h6 className={styles.dateSearch}>00/00/00</h6>
-            </div>
-            <h1 className={styles.titleSearch}>Titlefsfasadfsadfsfsfsadfasdfsa</h1>
-            <h2 className={styles.descriptionSearch}>
-              Kdasjfosdfksadofsdkfosdgksdoafksf Kdasjfosdfksadofsdkfosdgk
-              sdoafksfKdasjfosdfksadofsdkfosdgksdoafksfKdasjfo
-              sdfksadofsdkfosdgksdoafksfKdasjfosdfksadofsdkfosdgksdoafksfKd
-              asjfosdfksadofsdkfosdgksdoafksf
-            </h2>
-            <h5 className={styles.tagSearch}># Coisas, coiasssfsdfsadfadsfsadfadsfsadfadsfsdafsaf</h5>
-          </div>
         </div>
-
-
       </div>
     </div>
   )
