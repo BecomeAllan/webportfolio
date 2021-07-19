@@ -34,7 +34,6 @@
     flex-direction: column;
     // min-width: 275px;
     height: 120px;
-
   }
 
   .cardSearch:hover {
@@ -69,6 +68,9 @@
     flex-direction: column;
     // min-width: 275px;
     height: 120px;
+
+    animation-name: selected;
+    animation-duration: 0.1s;
   }
 
   .cardSearchSelected:hover {
@@ -128,5 +130,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top: 15px;
+  }
+
+  @keyframes selected {
+    from {
+      background: #fff; 
+    }
+    to {
+      background: #181818;
+    }
   }
 }

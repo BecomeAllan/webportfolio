@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import styles from './home.module.scss'
 
 export default function Home() {
+  const [selected, setSelected] = useState(0)
+
   return (
     <div className={styles.container}>
       <div className={styles.home}>
@@ -13,17 +16,17 @@ export default function Home() {
       <div className={styles.skill}>
 
         <div className={styles.cardConteiner}>
-          <div className={styles.cardSelect}>
+          <div onClick={()=> setSelected(0)} className={selected===0 ?styles.cardSelect:styles.card}>
             <h2>python</h2>
             <p>alskfldsfladsflsdakflskadlfkdsalfksa</p>
             <img src="python.svg" alt="PY" />
           </div>
-          <div className={styles.card}>
+          <div onClick={()=> setSelected(1)} className={selected===1 ?styles.cardSelect:styles.card}>
             <h2>R</h2>
             <p>alskfldsfladsflsdakflskadlfkdsalfksa</p>
             <img src="R_logo.svg" alt="R" />
           </div>
-          <div className={styles.card}>
+          <div onClick={()=> setSelected(2)} className={selected===2 ?styles.cardSelect:styles.card}>
             <img src="javascript.svg" alt="JS" />
             <h2>Javascript</h2>
             <p>alskfldsfladsflsdakflskadlfkdsalfksa</p>

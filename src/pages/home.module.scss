@@ -137,6 +137,17 @@
       .card {
         background: #333333;
       }
+      .card:hover {
+        background: #fff;
+        cursor: pointer;
+        & > p {
+          color: #333333;
+        }
+      }
+      .cardSelect:hover {
+        background: #fff;
+        cursor: pointer;
+      }
     }
 
     .introConteiner {
@@ -163,7 +174,7 @@
         font-size: 25px;
         line-height: 16px;
         text-align: justify;
-      align-items: center;
+        align-items: center;
       }
 
       & > p {
