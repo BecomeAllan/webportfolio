@@ -2,17 +2,37 @@ import styles from './project.module.scss'
 import { Card } from '../../components/Card'
 import { useState } from 'react'
 import Head from 'next/head'
+import ReactMarkdown from 'react-markdown'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import gfm from 'remark-gfm'
 
-export default function Project() {
+// import marked from "marked";
+
+type ProjectProps = {
+  data: string
+}
+
+export default function Project({ data }: ProjectProps) {
   const [selected, setSelected] = useState(0)
 
   function funSelected(value: number) {
     setSelected(value)
   }
 
+  // function markdownParseImage(data:string) {
+  //   const regex = /.!\[.+\]\([^+]\)./ 
+  //   return (data.match(regex))
+  // }
+
+
+  // console.log(markdownParseImage(data))
+  
   return (
+
     <div className={styles.container}>
       <Head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossOrigin="anonymous" />
         <title>
           BecomeAllan | Project
         </title>
@@ -28,8 +48,13 @@ export default function Project() {
             <h2 className={styles.description}>Kdasjfosdfksadofsdkfosdgksdoafksf KdasjfosdfksadofsdkfosdgksdoafksfKdasjfosdfksadofsdkfosdgksdoafksfKdasjfosdfksadofsdkfosdgksdoafksf Kdasjfosdfksadofsdkfosdgksdoafksf</h2>
             <h5 className={styles.tag}># Coisas, coiasss Coisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas,</h5>
             <div className={styles.line} />
-            <p className={styles.resume}>Coisas, coiasss,cdjojdaosaodjaKdasjfo
-              Coisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksf</p>
+            <div className={styles.resume}>
+
+              <ReactMarkdown
+                remarkPlugins={[gfm, remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+                children={data} />
+            </div>
           </div>
         </div>
       </div>
@@ -56,4 +81,16 @@ export default function Project() {
     </div>
   )
 
+}
+
+// // SSR (Dados jão vao ser carregados juntos com a pagina)[ carregar toda vez que alguem acessar]
+export async function getServerSideProps() {
+  const res = await fetch("https://raw.githubusercontent.com/BecomeAllan/RNN/main/README.md")
+  const data = await res.text()
+
+  return {
+    props: {
+      data
+    }
+  }
 }

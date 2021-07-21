@@ -7,9 +7,9 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true' />
-          <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto:wght@900&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto:wght@400;500;700;900&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
 
-					<link rel="icon" href="https://avatars.githubusercontent.com/u/57200740" type="image/png"/>
+          <link rel="icon" href="https://avatars.githubusercontent.com/u/57200740" type="image/png" />
         </Head>
         <body>
           <Main />
