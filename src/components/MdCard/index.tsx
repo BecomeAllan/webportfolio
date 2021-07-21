@@ -23,25 +23,25 @@ type selectedCard = {
   description?: string,
   branchSelected: string,
   Url: string,
-  tags?: string
+  htags?: string[]
 }
 
 export function MdCard({ selectedData }: Mdcard) {
   const [readme, setReadme] = useState('')
 
-  const { Url, date, title, description, languages, tags, branchSelected, selected } = selectedData
+  const { Url, date, title, description, languages, htags, branchSelected, selected } = selectedData
 
   useEffect(() => {
     async function load() {
       const md = await fetch(`https://raw.githubusercontent.com/BecomeAllan/${title}/${branchSelected}/README.md`)
       const mdFile = await md.text()
-      console.log(mdFile);
+      // console.log(mdFile);
 
       return setReadme(mdFile)
     }
 
     load()
-    console.log("MUDEI aq Md");
+    // console.log("MUDEI aq Md");
   }, [selected])
 
   return (
@@ -56,7 +56,7 @@ export function MdCard({ selectedData }: Mdcard) {
         </div>
         <div className={styles.bodyCard}>
           <h2 className={styles.description}>{description}</h2>
-          <h5 className={styles.tag}>{tags}</h5>
+          <h5 className={styles.tag}>{htags?.join(" ")}</h5>
           <div className={styles.line} />
           <div className={styles.resume}>
 

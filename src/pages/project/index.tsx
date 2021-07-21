@@ -1,18 +1,17 @@
 import api from "axios"
-import { baseUrl, repoUrl, reposUrl } from '../../../services/apis'
-
-// import reposList from "../../../server/repos.json"
+import { baseUrl } from '../../../services/apis'
 
 import { Card } from '../../components/Card'
-import {  useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 
 import styles from './project.module.scss'
 import { MdCard } from '../../components/MdCard'
+import { GetStaticProps } from "next"
 // import marked from "marked";
 
 type ProjectProps = {
-  data: string
+  // data: string
   reposList: repoDataProps[]
 }
 export type repoDataProps = {
@@ -23,18 +22,21 @@ export type repoDataProps = {
   description: string,
   default_branch: string,
   html_url: string,
+  tags?: string[]
 }
 
-export default function Project({ data, reposList }: ProjectProps) {
+export default function Project({ reposList }: ProjectProps) {
   const [selected, setSelected] = useState(0)
-  const [languages, setLanguages] = useState([])
+  const [languages, setLanguages] = useState(["languages"])
   const [date, setDate] = useState("00/00/00")
   const [title, setTitle] = useState("Title")
   const [description, setDescription] = useState("Description...")
   const [Url, setUrl] = useState("URL")
   const [branchSelected, setBranchSelected] = useState("main")
 
-  const [tags, setTags] = useState("Tags")
+  const [htags, setHTags] = useState(["#Tags"])
+
+  console.log(htags);
 
   function funSelected({
     id,
@@ -43,7 +45,8 @@ export default function Project({ data, reposList }: ProjectProps) {
     name,
     description,
     default_branch,
-    html_url
+    html_url,
+    tags
   }: repoDataProps) {
 
     setSelected(id)
@@ -53,7 +56,7 @@ export default function Project({ data, reposList }: ProjectProps) {
     setDescription(description)
     setUrl(html_url)
     setBranchSelected(default_branch)
-    setTags("#tag")
+    setHTags(tags || [""])
   }
 
   const dataMdcard = {
@@ -63,9 +66,10 @@ export default function Project({ data, reposList }: ProjectProps) {
     title,
     description,
     Url,
-    tags,
+    htags,
     branchSelected
   }
+  console.log(htags);
 
   return (
 
@@ -91,7 +95,13 @@ export default function Project({ data, reposList }: ProjectProps) {
 
         <div className={styles.projectcard}>
           {reposList.map(repoData => {
-            return <Card key={repoData.id} value={repoData.id} selected={selected} onChange={funSelected} data={repoData} />
+            return <Card
+              key={repoData.id}
+              value={repoData.id}
+              selected={selected}
+              onChange={funSelected}
+              data={repoData}
+            />
           })}
 
 
@@ -104,14 +114,14 @@ export default function Project({ data, reposList }: ProjectProps) {
 }
 
 // // SSR (Dados jão vao ser carregados juntos com a pagina)[ carregar toda vez que alguem acessar]
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
   // const data = await fetch("baseUrl + /README.md").then(res => res.text())
   // const data = await res.text()
-  const  reposList = await api.get(baseUrl + '/server/repos.json')
-  
-  // const reposList = await repos.json()
+  const repos = await api.get(baseUrl + '/server/repos.json')
 
-  console.log(reposList);
+  const reposList = repos.data
+
+  // console.log(reposList);
 
   // reposList
 

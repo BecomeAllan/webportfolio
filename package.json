@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "server": "json-server server/home.json -w -d 100 -p 3000"
+    "server": "json-server server/about.json -w -d 100 -p 3000"
   },
   "dependencies": {
     "axios": "^0.21.1",

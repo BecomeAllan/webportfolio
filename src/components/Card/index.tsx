@@ -9,11 +9,12 @@ type Cardprops = {
   value: number
   selected: number
   onChange: (data: repoDataProps) => void,
-  data: repoDataProps
+  data: repoDataProps,
+  // tag?: string[]
 }
 
 export function Card({ value, selected, onChange, data }: Cardprops) {
-  const {description, languages, name} = data
+  const {description, languages, name, tags} = data
 
 
   return (
@@ -28,7 +29,7 @@ export function Card({ value, selected, onChange, data }: Cardprops) {
 
         <div className={styles.titleSearch}><h1>{name}</h1></div>
         <div className={styles.descriptionSearch}><h2>{description}</h2></div>
-        <div className={styles.tagSearch}><h5># Coisas, coiasss</h5></div>
+        <div className={styles.tagSearch}><h5>{tags?.join(' ')}</h5></div>
 
       </div>
     </div>
