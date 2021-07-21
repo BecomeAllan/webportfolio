@@ -1,33 +1,72 @@
-import styles from './project.module.scss'
-import { Card } from '../../components/Card'
-import { useState } from 'react'
-import Head from 'next/head'
-import ReactMarkdown from 'react-markdown'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import gfm from 'remark-gfm'
+import api from "axios"
+import { baseUrl, repoUrl, reposUrl } from '../../../services/apis'
 
+// import reposList from "../../../server/repos.json"
+
+import { Card } from '../../components/Card'
+import {  useState } from 'react'
+import Head from 'next/head'
+
+import styles from './project.module.scss'
+import { MdCard } from '../../components/MdCard'
 // import marked from "marked";
 
 type ProjectProps = {
   data: string
+  reposList: repoDataProps[]
+}
+export type repoDataProps = {
+  id: number,
+  languages: [],
+  updated_at: string,
+  name: string,
+  description: string,
+  default_branch: string,
+  html_url: string,
 }
 
-export default function Project({ data }: ProjectProps) {
+export default function Project({ data, reposList }: ProjectProps) {
   const [selected, setSelected] = useState(0)
+  const [languages, setLanguages] = useState([])
+  const [date, setDate] = useState("00/00/00")
+  const [title, setTitle] = useState("Title")
+  const [description, setDescription] = useState("Description...")
+  const [Url, setUrl] = useState("URL")
+  const [branchSelected, setBranchSelected] = useState("main")
 
-  function funSelected(value: number) {
-    setSelected(value)
+  const [tags, setTags] = useState("Tags")
+
+  function funSelected({
+    id,
+    languages,
+    updated_at,
+    name,
+    description,
+    default_branch,
+    html_url
+  }: repoDataProps) {
+
+    setSelected(id)
+    setLanguages(languages)
+    setDate(updated_at)
+    setTitle(name)
+    setDescription(description)
+    setUrl(html_url)
+    setBranchSelected(default_branch)
+    setTags("#tag")
   }
 
-  // function markdownParseImage(data:string) {
-  //   const regex = /.!\[.+\]\([^+]\)./ 
-  //   return (data.match(regex))
-  // }
+  const dataMdcard = {
+    selected,
+    languages,
+    date,
+    title,
+    description,
+    Url,
+    tags,
+    branchSelected
+  }
 
-
-  // console.log(markdownParseImage(data))
-  
   return (
 
     <div className={styles.container}>
@@ -37,27 +76,8 @@ export default function Project({ data }: ProjectProps) {
           BecomeAllan | Project
         </title>
       </Head>
-      <div className={styles.project}>
-        <h1>Title Coisas, coiasss,cdjojdaosaodjaKdasjf</h1>
-        <div className={styles.card}>
-          <div className={styles.topCard}>
-            <h6 className={styles.laguage}>python, javascript Coisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss</h6>
-            <h6 className={styles.date}>00/00/00</h6>
-          </div>
-          <div className={styles.bodyCard}>
-            <h2 className={styles.description}>Kdasjfosdfksadofsdkfosdgksdoafksf KdasjfosdfksadofsdkfosdgksdoafksfKdasjfosdfksadofsdkfosdgksdoafksfKdasjfosdfksadofsdkfosdgksdoafksf Kdasjfosdfksadofsdkfosdgksdoafksf</h2>
-            <h5 className={styles.tag}># Coisas, coiasss Coisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas, coiasss,cdjojdaosaodjaKdasjfosdfksadofsdkfosdgksdoafksfCoisas,</h5>
-            <div className={styles.line} />
-            <div className={styles.resume}>
 
-              <ReactMarkdown
-                remarkPlugins={[gfm, remarkMath]}
-                rehypePlugins={[rehypeKatex]}
-                children={data} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <MdCard selectedData={dataMdcard} />
       <div className={styles.search}>
         <div className={styles.searchTag}>
           <form action="" method="get">
@@ -70,10 +90,10 @@ export default function Project({ data }: ProjectProps) {
         </div>
 
         <div className={styles.projectcard}>
+          {reposList.map(repoData => {
+            return <Card key={repoData.id} value={repoData.id} selected={selected} onChange={funSelected} data={repoData} />
+          })}
 
-          <Card value={0} selected={selected} onChange={funSelected} />
-          <Card value={1} selected={selected} onChange={funSelected} />
-          <Card value={2} selected={selected} onChange={funSelected} />
 
         </div>
 
@@ -84,13 +104,21 @@ export default function Project({ data }: ProjectProps) {
 }
 
 // // SSR (Dados jão vao ser carregados juntos com a pagina)[ carregar toda vez que alguem acessar]
-export async function getStaticProps() {
-  const res = await fetch("https://raw.githubusercontent.com/BecomeAllan/RNN/main/README.md")
-  const data = await res.text()
+export async function getServerSideProps() {
+  // const data = await fetch("baseUrl + /README.md").then(res => res.text())
+  // const data = await res.text()
+  const  reposList = await api.get(baseUrl + '/server/repos.json')
+  
+  // const reposList = await repos.json()
+
+  console.log(reposList);
+
+  // reposList
 
   return {
     props: {
-      data
+      // data,
+      reposList
     }
   }
 }

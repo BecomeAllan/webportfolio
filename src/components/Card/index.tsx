@@ -1,29 +1,33 @@
 
 // import Link from 'next/link'
 
-import { useState } from 'react'
+// import { useState } from 'react'
+import { repoDataProps } from '../../pages/project'
 import styles from './styles.module.scss'
 
 type Cardprops = {
-  selected: number
   value: number
-  onChange: (number: number) => void
+  selected: number
+  onChange: (data: repoDataProps) => void,
+  data: repoDataProps
 }
 
-export function Card({ selected, value, onChange }: Cardprops) {
+export function Card({ value, selected, onChange, data }: Cardprops) {
+  const {description, languages, name} = data
+
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={value}>
 
-      <div onClick={() => onChange(value)} className={value === selected ? styles.cardSearchSelected : styles.cardSearch}>
+      <div onClick={() => onChange(data)} className={value === selected ? styles.cardSearchSelected : styles.cardSearch}>
 
         <div className={styles.topCardSearch}>
-          <h6 className={styles.laguageSearch}>python, javascriptaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h6>
-          <h6 className={styles.dateSearch}>00/00/00</h6>
+          <h6 className={styles.laguageSearch}>{languages.join(', ')}</h6>
+          <h6 className={styles.dateSearch}>{data.updated_at}</h6>
         </div>
 
-        <div className={styles.titleSearch}><h1>Titles</h1></div>
-        <div className={styles.descriptionSearch}><h2>Kdasjfosdfksadofsdkfosdgksdoafksf</h2></div>
+        <div className={styles.titleSearch}><h1>{name}</h1></div>
+        <div className={styles.descriptionSearch}><h2>{description}</h2></div>
         <div className={styles.tagSearch}><h5># Coisas, coiasss</h5></div>
 
       </div>

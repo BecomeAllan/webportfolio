@@ -1,4 +1,6 @@
-import { api } from '../../services/api'
+import api from "axios"
+import {baseUrl} from '../../services/apis.js'
+
 import { GetStaticProps } from 'next'
 
 import { useState } from 'react'
@@ -80,7 +82,7 @@ export default function Home({ infos }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const { data } = await api.get('home.json')
+  const { data } = await api.get(baseUrl + '/server/home.json')
   // const { data } = await api.get('info')
 
   const datainfo = data.info
