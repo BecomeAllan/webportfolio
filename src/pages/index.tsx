@@ -80,12 +80,12 @@ export default function Home({ infos }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  // const { data } = await api.get('home.json')
-  const { data } = await api.get('info')
+  const { data } = await api.get('home.json')
+  // const { data } = await api.get('info')
 
-  // const datainfo = data.info
+  const datainfo = data.info
 
-  const infos = data.map((info: Infos) => {
+  const infos = datainfo.map((info: Infos) => {
     return {
       index: info.index,
       title: info.title,
