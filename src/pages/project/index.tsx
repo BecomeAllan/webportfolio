@@ -84,7 +84,7 @@ export default function Project({ data }: ProjectProps) {
 }
 
 // // SSR (Dados jão vao ser carregados juntos com a pagina)[ carregar toda vez que alguem acessar]
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch("https://raw.githubusercontent.com/BecomeAllan/RNN/main/README.md")
   const data = await res.text()
 
