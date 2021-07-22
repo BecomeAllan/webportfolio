@@ -2,7 +2,7 @@
   "info": [
     {
       "index": 0,
-      "title": "Python",
+      "title": "python",
       "intro": "Data Science, Machine Learning, Data Mining, Deep Learning...",
       "description": "The data says a lot about things, and learning from the data has incredible possibilities.",
       "text": "Cleaning, treat and organizing the data it with a critical sense is the fundamental part of machine learning. \nWith well-structured data, imagination with libraries like tensorflow, keras, scikit-learn and others, has no limits in applications.\n"
@@ -16,7 +16,7 @@
     },
     {
       "index": 2,
-      "title": "JavaScript",
+      "title": "javascript",
       "intro": "Web application, Front-end, Back-end...",
       "description": "Good applications for reality involve interacting with a simple interface to document or use to interact with new ideas.",
       "text": "Languages such as html, css and javascript provide a variety of possibilities in creating content rich in creativity.\n libraries like React.js make complex systems simple with functions useful for scalable web, desktop and even mobile applications, improving person-computer interaction.\nIn the handling of information traffic, tools used in conjunction with node.js, there is an incredible position in multi-threaded tasks, in the possibility of making several parallel applications for the creative and informative social development of ideas."
