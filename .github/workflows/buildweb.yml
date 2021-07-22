@@ -39,6 +39,7 @@ jobs:
       run: npm run export
       env: 
         NEXT_PUBLIC_BASE_PATH: /webportfolio 
+    - name: Add no nojekyll
       run: touch ./out/.nojekyll
 
     - name: Deploy 🚀
