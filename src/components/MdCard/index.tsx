@@ -1,12 +1,10 @@
 
-// import Link from 'next/link'
-
-// import { useState } from 'react'
 import { repoDataProps } from '../../pages/project'
 import styles from './styles.module.scss'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
 
 import gfm from 'remark-gfm'
 import { useEffect, useState } from 'react'
@@ -34,13 +32,21 @@ export function MdCard({ selectedData }: Mdcard) {
 
   useEffect(() => {
     async function load() {
+      const re = /\!\[\w+\]\(|<img src\=\"/gm;
+
       const md = await fetch(`https://raw.githubusercontent.com/BecomeAllan/${title}/${branchSelected}/README.md`)
-      const mdFile = await md.text()
-      // console.log(mdFile);
+      var mdText = await md.text()
 
-      // mdFile.replace('![arq](images/Aquitetura.png)')
+      const mat = mdText.match(re)
 
-      return setReadme(mdFile)
+      if (mat) {
+        for (var idx in mat) {
+
+          mdText = mdText.replace(mat[idx], `${mat[idx]}https://raw.githubusercontent.com/BecomeAllan/${title}/${branchSelected}/`)
+        }
+      }
+
+      return setReadme(mdText)
     }
 
     load()
@@ -49,9 +55,9 @@ export function MdCard({ selectedData }: Mdcard) {
 
   return (
     <div className={styles.project}>
-      <a href={Url}>
-        <h1>{title}</h1>
-      </a>
+
+      <h1><a href={Url}>{title}</a></h1>
+
       <div className={styles.card}>
         <div className={styles.topCard}>
           <h6 className={styles.laguage}>{languages?.join(", ")}</h6>
@@ -61,21 +67,21 @@ export function MdCard({ selectedData }: Mdcard) {
         <div className={styles.bodyCard}>
           <h2 className={styles.description}>{description}</h2>
 
-          <div className= {styles.topbottomcard}>
+          <div className={styles.topbottomcard}>
             <h5 className={styles.tag}>{htags?.join(" ")}</h5>
             <div>
-            <a href={Url}>
-              <img src={prefix + "/github.svg"} alt="github" />
-            </a>
+              <a href={Url}>
+                <img src={prefix + "/github.svg"} alt="github" />
+              </a>
             </div>
           </div>
 
           <div className={styles.line} />
           <div className={styles.resume}>
 
-            <ReactMarkdown
+            <ReactMarkdown className={styles.md}
               remarkPlugins={[gfm, remarkMath]}
-              rehypePlugins={[rehypeKatex]}
+              rehypePlugins={[rehypeKatex, rehypeRaw]}
               children={readme} />
           </div>
         </div>
