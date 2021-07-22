@@ -1,6 +1,8 @@
 import api from "axios"
 import { baseUrl } from '../../../services/apis'
-import { useRouter } from 'next/router'
+
+const { createFilter } = require('javascript-search-input')
+
 
 import { Card } from '../../components/Card'
 import { useState, useEffect } from 'react'
@@ -10,6 +12,13 @@ import styles from './project.module.scss'
 import { MdCard } from '../../components/MdCard'
 import { GetStaticProps } from "next"
 // import marked from "marked";
+
+
+
+type filter = {
+  keys: string[],
+  data: repoDataProps[]
+}
 
 type ProjectProps = {
   // data: string
@@ -37,35 +46,19 @@ export default function Project({ reposList }: ProjectProps) {
   const [branchSelected, setBranchSelected] = useState("main")
   const [htags, setHTags] = useState(["#Tags"])
 
-  // const [search, setSearch] = useState("")
+  // const [search, setSearch] = useState('')
+  function useFilter({ keys, data }: filter) {
+    const [inputText, setInputText] = useState('');
+    const myFilter = createFilter(keys);
+    const filtered = data.filter(myFilter(inputText));
 
-  // // console.log(document.getElementById("searchTxt"));
-  // const router = useRouter()
-  // const { searchTxt } = router.query
+    return { inputText, setInputText, filtered };
+  };
 
-
-
-  // useEffect(() => {
-  //   () => {
-  //     reposList.map(repo => {
-  //       if (searchTxt) {
-  //         const find = searchTxt.toString()
-  //         if (!(repo.name.isMatch(find) || repo.languages.join(" ").isMatch(find) || repo.tags?.join(" ").isMatch(find))) {
-  //           repo.show = true
-  //         }else {
-  //           repo.show = false
-  //         }
-
-  //       }
-  //     })
-  //   }
-  // }, [searchTxt])
-
-  // console.log(searchTxt);
-
-  // String.prototype.isMatch = function (s) {
-  //   return this.match(s) !== null
-  // }
+  const { inputText, setInputText, filtered } = useFilter({
+    keys: ['languages', "name", "tags"],
+    data: reposList,
+  });
 
   function funSelected({
     id,
@@ -98,7 +91,7 @@ export default function Project({ reposList }: ProjectProps) {
     htags,
     branchSelected
   }
-  // console.log(htags);
+  
 
   return (
 
@@ -113,17 +106,23 @@ export default function Project({ reposList }: ProjectProps) {
       <MdCard selectedData={dataMdcard} />
       <div className={styles.search}>
         <div className={styles.searchTag}>
-          <form action="" method="get">
-            <input type="text" name="searchTxt" />
-            <button type='submit'>
-              <img src="/search.svg" alt="search" />
-            </button>
-          </form>
+
+          <div className={styles.searchBox}>
+
+            <img src="/search.svg" alt="search" />
+            <input
+              type="text"
+              value={inputText}
+              placeholder="Titles, #Tags, Code Languages"
+              onChange={event => setInputText(event.target.value)}
+            />
+          </div>
+
           <div className={styles.lineSearch} />
         </div>
 
         <div className={styles.projectcard}>
-          {reposList.map(repoData => {
+          {filtered.map(repoData => {
             return <Card
               key={repoData.id}
               value={repoData.id}

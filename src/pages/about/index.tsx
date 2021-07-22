@@ -1,6 +1,6 @@
 import api from "axios"
 import { baseUrl, repoUrl, reposUrl } from '../../../services/apis'
-
+const { createFilter } = require('javascript-search-input')
 
 import Head from 'next/head'
 import { useState } from 'react'
@@ -20,14 +20,33 @@ type aboutDataProps = {
 }
 
 type aboutProps = {
-  aboutData: aboutDataProps
+  aboutData: aboutDataProps,
+  weebbookData: string[]
 }
 
-export default function About({ aboutData }: aboutProps) {
+type filter = {
+  keys: string[],
+  data: string[]
+}
+
+export default function About({ aboutData, weebbookData }: aboutProps) {
 
   const [selected, setSelected] = useState(0)
 
   const { curses, experiences } = aboutData
+
+  function useFilter({ keys, data }: filter) {
+    const [inputText, setInputText] = useState('');
+    const myFilter = createFilter(keys);
+    const filtered = data.filter(myFilter(inputText));
+
+    return { inputText, setInputText, filtered };
+  };
+
+  const { inputText, setInputText, filtered } = useFilter({
+    keys: [""],
+    data: weebbookData,
+  });
 
   function funSelected(value: number) {
     setSelected(value)
@@ -91,29 +110,39 @@ export default function About({ aboutData }: aboutProps) {
           <div className={styles.line} />
           <div className={styles.contact}>
 
-            <h2>Email</h2>
-            <p>dlaspfkasfkpafkpadasfkapfdlaspfkasfk@email.com</p>
-            <div className={styles.line} />
+
 
             <h2>Telephone</h2>
             <p>+555(99)99999999</p>
             <div className={styles.line} />
 
+            <h2>Email</h2>
+            <p>dlaspfkasfkpafkpadasfkapfdlaspfkasfk@email.com</p>
+            <div className={styles.line} />
+
           </div>
         </div>
       </div>
+      
+      <div className={styles.Vline}></div>
 
       <div className={styles.webbook}>
         <h1>WEBBOOKs</h1>
-        <p>ksdfoksdaofksoadfksaodfkosadkfosafko</p>
+        <p>Some summaries on mathematics, probability theory, statistics and others in web book format</p>
 
         <div className={styles.searchTag}>
-          <form action="" method="get">
-            <input type="text" />
-            <button type='submit'>
-              <img src="/search.svg" alt="search" />
-            </button>
-          </form>
+
+          <div className={styles.searchBox}>
+
+            <img src="/search.svg" alt="search" />
+            <input
+              type="text"
+              value={inputText}
+              placeholder="Titles, #Tags, Code Languages"
+              onChange={event => setInputText(event.target.value)}
+            />
+          </div>
+
           <div className={styles.lineSearch} />
         </div>
 
@@ -136,13 +165,16 @@ export const getStaticProps: GetStaticProps = async () => {
   const aboutData = about.data.about
   // console.log(about.data);
 
-  console.log(aboutData);
+  const weebbookData = [{}]
+
+  // console.log(aboutData);
 
   // reposList
 
   return {
     props: {
       aboutData,
+      weebbookData
       // reposList
     }
   }

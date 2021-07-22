@@ -6,7 +6,7 @@
 
   background: linear-gradient(#000, #434343);
   box-shadow: -3px 0px 17px 5px #000000;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,13 +17,12 @@
     line-height: 0.8em;
     font-size: 1em;
     letter-spacing: 0.04em;
-    
-    a{
+
+    a {
       color: #fff;
       text-decoration: none;
     }
   }
-     
 }
 
 .sources {
@@ -31,14 +30,9 @@
   width: min-content;
   margin-bottom: 10px;
 
-  a img{
+  a img {
     margin-bottom: 10px;
     width: 1.5em;
+    // filter: invert(0%) saturate(100%) brightness(99%) contrast(100%);
   }
-  
 }
-
-
-
-
-

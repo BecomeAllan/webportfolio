@@ -6,8 +6,6 @@
   justify-content: center;
   // grid-template-columns: 70% auto;
 
-  
-
   .search {
     // grid-column: 2;
     // border: 1px solid blueviolet;
@@ -19,45 +17,52 @@
 
     .searchTag {
       width: 100%;
+      // background-color: red;
+      // justify-self: center;
+      // align-self: center;
+      align-items: center;
       display: flex;
       flex-direction: column;
 
-      form {
+      .searchBox {
         display: flex;
-        // grid-template-columns: 75% 25%;
-        // grid-row: 95% auto;
+        width: 100%;
+
         & > input {
+          
           // grid-column: 1;
           // grid-row: 1;
           background-color: rgba(#fff, 0.1);
           color: #fff;
           border: none;
           border-radius: 5px;
+          padding: 0 10px;
 
           width: 100%;
         }
 
-        & > button {
-          background-color: rgba(#000, 0);
-          border: none;
+        & > img {
+          // grid-column: 2;
+          // grid-row: 1;
+          width: 26px;
+          height: 26px;
+          justify-self: flex-end;
+          padding: 0 10px;
 
-          & > img {
-            // grid-column: 2;
-            // grid-row: 1;
-            width: 26px;
-            height: 26px;
-            justify-self: flex-end;
-            padding: 0 10px;
-
-            filter: invert(54%) sepia(10%) saturate(17%) hue-rotate(352deg) brightness(99%) contrast(91%);
-          }
-
-          & > img:hover {
-            cursor: pointer;
-            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(352deg) brightness(100%) contrast(91%);
-          }
+          filter: invert(54%) sepia(10%) saturate(17%) hue-rotate(352deg) brightness(99%) contrast(91%);
         }
       }
+
+      // & > button {
+      //   background-color: rgba(#000, 0);
+      //   border: none;
+
+      //   & > img:hover {
+      //     cursor: pointer;
+      //     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(352deg) brightness(100%) contrast(91%);
+      //   }
+      // }
+
       .lineSearch {
         margin-top: 5px;
         width: 100%;
