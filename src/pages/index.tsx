@@ -1,5 +1,5 @@
 import api from "axios"
-import {baseUrl} from '../../services/apis.js'
+import {baseUrl, prefix} from '../../services/apis.js'
 
 import { GetStaticProps } from 'next'
 
@@ -51,7 +51,7 @@ export default function Home({ infos }: HomeProps) {
                 className={selected === key ? styles.cardSelect : styles.card}>
                 <h2>{info.title}</h2>
                 <p>{info.intro}</p>
-                <img src={`${info.title}.svg`} alt={`${info.title}`} />
+                <img src={prefix + `/${info.title}.svg`} alt={`${info.title}`} />
               </div>
             )
           })}
