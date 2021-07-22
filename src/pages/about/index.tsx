@@ -85,7 +85,7 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
         </div>
 
         <div className={styles.curseCard}>
-          <h1>CURSE</h1>
+          <h1>COURSE</h1>
           <div className={styles.line} />
 
           {curses?.map((curse: About, indx) => {
