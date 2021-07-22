@@ -42,7 +42,7 @@ export default function Project({ reposList }: ProjectProps) {
   const [date, setDate] = useState("00/00/00")
   const [title, setTitle] = useState("Title")
   const [description, setDescription] = useState("Description...")
-  const [Url, setUrl] = useState("URL")
+  const [Url, setUrl] = useState("/")
   const [branchSelected, setBranchSelected] = useState("main")
   const [htags, setHTags] = useState(["#Tags"])
 

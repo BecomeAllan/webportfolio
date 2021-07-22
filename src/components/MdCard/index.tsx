@@ -54,9 +54,19 @@ export function MdCard({ selectedData }: Mdcard) {
           <h6 className={styles.laguage}>{languages?.join(", ")}</h6>
           <h6 className={styles.date}>{date}</h6>
         </div>
+
         <div className={styles.bodyCard}>
           <h2 className={styles.description}>{description}</h2>
-          <h5 className={styles.tag}>{htags?.join(" ")}</h5>
+
+          <div className= {styles.topbottomcard}>
+            <h5 className={styles.tag}>{htags?.join(" ")}</h5>
+            <div>
+            <a href={Url}>
+              <img src="/github.svg" alt="github" />
+            </a>
+            </div>
+          </div>
+
           <div className={styles.line} />
           <div className={styles.resume}>
 
