@@ -1,8 +1,9 @@
 import api from "axios"
 import { baseUrl } from '../../../services/apis'
+import { useRouter } from 'next/router'
 
 import { Card } from '../../components/Card'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
 import styles from './project.module.scss'
@@ -22,7 +23,8 @@ export type repoDataProps = {
   description: string,
   default_branch: string,
   html_url: string,
-  tags?: string[]
+  tags?: string[],
+  show: boolean
 }
 
 export default function Project({ reposList }: ProjectProps) {
@@ -33,10 +35,37 @@ export default function Project({ reposList }: ProjectProps) {
   const [description, setDescription] = useState("Description...")
   const [Url, setUrl] = useState("URL")
   const [branchSelected, setBranchSelected] = useState("main")
-
   const [htags, setHTags] = useState(["#Tags"])
 
-  console.log(htags);
+  // const [search, setSearch] = useState("")
+
+  // // console.log(document.getElementById("searchTxt"));
+  // const router = useRouter()
+  // const { searchTxt } = router.query
+
+
+
+  // useEffect(() => {
+  //   () => {
+  //     reposList.map(repo => {
+  //       if (searchTxt) {
+  //         const find = searchTxt.toString()
+  //         if (!(repo.name.isMatch(find) || repo.languages.join(" ").isMatch(find) || repo.tags?.join(" ").isMatch(find))) {
+  //           repo.show = true
+  //         }else {
+  //           repo.show = false
+  //         }
+
+  //       }
+  //     })
+  //   }
+  // }, [searchTxt])
+
+  // console.log(searchTxt);
+
+  // String.prototype.isMatch = function (s) {
+  //   return this.match(s) !== null
+  // }
 
   function funSelected({
     id,
@@ -69,7 +98,7 @@ export default function Project({ reposList }: ProjectProps) {
     htags,
     branchSelected
   }
-  console.log(htags);
+  // console.log(htags);
 
   return (
 
@@ -85,7 +114,7 @@ export default function Project({ reposList }: ProjectProps) {
       <div className={styles.search}>
         <div className={styles.searchTag}>
           <form action="" method="get">
-            <input type="text" />
+            <input type="text" name="searchTxt" />
             <button type='submit'>
               <img src="/search.svg" alt="search" />
             </button>
@@ -101,6 +130,7 @@ export default function Project({ reposList }: ProjectProps) {
               selected={selected}
               onChange={funSelected}
               data={repoData}
+              show={repoData.show}
             />
           })}
 

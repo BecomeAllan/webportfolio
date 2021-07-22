@@ -21,6 +21,7 @@ async function GetRepos() {
         description: repo.description,
         default_branch: repo.default_branch,
         html_url: repo.html_url,
+        show: true
       }
       return rep
     })

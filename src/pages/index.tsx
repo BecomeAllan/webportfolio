@@ -100,7 +100,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: { // passada em HOME(props)
       infos
-    },
-    revalidate: 10 // segundos
+    }
   }
 }

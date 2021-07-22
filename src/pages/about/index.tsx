@@ -133,8 +133,8 @@ export const getStaticProps: GetStaticProps = async () => {
   // const data = await res.text()
   const about = await api.get(baseUrl + '/server/about.json')
   // const about = await api.get("http://localhost:3000/about")
-
-  const aboutData = about.data
+  const aboutData = about.data.about
+  // console.log(about.data);
 
   console.log(aboutData);
 
