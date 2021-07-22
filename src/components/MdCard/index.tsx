@@ -10,6 +10,7 @@ import rehypeKatex from 'rehype-katex'
 
 import gfm from 'remark-gfm'
 import { useEffect, useState } from 'react'
+import { prefix } from '../../../services/apis'
 
 type Mdcard = {
   selectedData: selectedCard
@@ -37,6 +38,8 @@ export function MdCard({ selectedData }: Mdcard) {
       const mdFile = await md.text()
       // console.log(mdFile);
 
+      // mdFile.replace('![arq](images/Aquitetura.png)')
+
       return setReadme(mdFile)
     }
 
@@ -62,7 +65,7 @@ export function MdCard({ selectedData }: Mdcard) {
             <h5 className={styles.tag}>{htags?.join(" ")}</h5>
             <div>
             <a href={Url}>
-              <img src="/github.svg" alt="github" />
+              <img src={prefix + "/github.svg"} alt="github" />
             </a>
             </div>
           </div>

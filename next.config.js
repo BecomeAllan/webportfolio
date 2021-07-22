@@ -1,7 +1,7 @@
 module.exports = {
   // distDir: 'out',
-  basePath: '/webportfolio',
-  assetPrefix: '/webportfolio',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
   reactStrictMode: true
   // env: {
   //   baseUrl: "https://raw.githubusercontent.com/BecomeAllan/webportfolio/main/"

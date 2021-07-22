@@ -1,5 +1,5 @@
 import api from "axios"
-import { baseUrl, repoUrl, reposUrl } from '../../../services/apis'
+import { baseUrl, repoUrl, reposUrl, prefix } from '../../../services/apis'
 const { createFilter } = require('javascript-search-input')
 
 import Head from 'next/head'
@@ -134,7 +134,7 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
 
           <div className={styles.searchBox}>
 
-            <img src="/search.svg" alt="search" />
+            <img src={prefix+"/search.svg"} alt="search" />
             <input
               type="text"
               value={inputText}

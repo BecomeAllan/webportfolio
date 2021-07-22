@@ -1,5 +1,5 @@
 import api from "axios"
-import { baseUrl } from '../../../services/apis'
+import { baseUrl, prefix } from '../../../services/apis'
 
 const { createFilter } = require('javascript-search-input')
 
@@ -109,7 +109,7 @@ export default function Project({ reposList }: ProjectProps) {
 
           <div className={styles.searchBox}>
 
-            <img src="/search.svg" alt="search" />
+            <img src={prefix + "/search.svg"} alt="search" />
             <input
               type="text"
               value={inputText}

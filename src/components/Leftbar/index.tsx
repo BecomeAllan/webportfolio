@@ -1,3 +1,4 @@
+import {prefix} from '../../../services/apis'
 
 import Link from 'next/link'
 
@@ -15,13 +16,13 @@ export function Leftbar() {
       </div>
       <div className={styles.sources}>
         <a href="mailto:allanvictor.almeida@gmail.com">
-          <img src="/email.svg" alt="email" />
+          <img src={prefix + "/email.svg"} alt="email" />
         </a>
         <a href="https://github.com/BecomeAllan">
-          <img src="/github.svg" alt="github" />
+          <img src={prefix + "/github.svg"} alt="github" />
         </a>
         <a href="https://linkedin.com/in/allan-faria-33b0a790">
-          <img src="/linkedin.svg" alt="linkedin" />
+          <img src={prefix + "/linkedin.svg"} alt="linkedin" />
         </a>
       </div>
     </div>

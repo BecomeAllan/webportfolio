@@ -5,7 +5,7 @@ const baseUrl = "https://raw.githubusercontent.com/BecomeAllan/webportfolio/main
 const reposUrl = "https://api.github.com/users/BecomeAllan/repos"
 const repoUrl = "https://api.github.com/repos/BecomeAllan" // + "/nameRepo'
 
-const prefix = '/webportfolio'
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 // export const api = axios.create({
 // baseURL: baseUrl +'server/'
