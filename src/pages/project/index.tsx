@@ -103,7 +103,10 @@ export default function Project({ reposList }: ProjectProps) {
         </title>
       </Head>
 
+      <div className={styles.mardkdown}>
+
       <MdCard selectedData={dataMdcard} />
+      </div>
       <div className={styles.search}>
         <div className={styles.searchTag}>
 

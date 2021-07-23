@@ -77,3 +77,14 @@
     }
   }
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    ul {
+      margin: 0;
+      li {
+        margin: 25px;
+      }
+    }
+  }
+}

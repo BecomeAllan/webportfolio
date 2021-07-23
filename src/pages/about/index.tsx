@@ -110,20 +110,29 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
           <div className={styles.line} />
           <div className={styles.contact}>
 
+            <div className={styles.contactContainer}>
+              <h2>Email</h2>
+              <div className={styles.line} />
+              <p>allan.filesia@gmail.com</p>
+            </div>
+
+            <div className={styles.contactContainer}>
+              <h2>Address</h2>
+              <div className={styles.line} />
+              <p>BRAZIL, Brasília</p>
+            </div>
 
 
-            <h2>Telephone</h2>
-            <p>+555(99)99999999</p>
-            <div className={styles.line} />
-
-            <h2>Email</h2>
-            <p>dlaspfkasfkpafkpadasfkapfdlaspfkasfk@email.com</p>
-            <div className={styles.line} />
+            <div className={styles.contactContainer}>
+              <h2>Phone</h2>
+              <div className={styles.line} />
+              <p>+555(61) 98490-3246</p>
+            </div>
 
           </div>
         </div>
       </div>
-      
+
       <div className={styles.Vline}></div>
 
       <div className={styles.webbook}>
@@ -134,7 +143,7 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
 
           <div className={styles.searchBox}>
 
-            <img src={prefix+"/search.svg"} alt="search" />
+            <img src={prefix + "/search.svg"} alt="search" />
             <input
               type="text"
               value={inputText}
@@ -147,7 +156,7 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
         </div>
 
         <div className={styles.projectcard}>
-          <p>uncoming...</p>
+          <p>coming soon...</p>
 
           {/* <Card value={0} selected={selected} onChange={funSelected} /> */}
 

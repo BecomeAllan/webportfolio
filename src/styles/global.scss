@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  // border: 2px solid red;
+
 }
 
 * {
@@ -24,35 +26,42 @@
   border: 3px solid black;
 }
 
-html, body {
-  height: 100vh;
-  width: 100%;
-  
-  font-family: 'Roboto', sans-serif;
+html {
+  font-size: 15px;
+
+}
+
+html,
+body {
+  // height: 100vh;
+  // width: 100vw;
+
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
 
-@media (max-width:1080px) {
-  html{
-      font-size: 93.75%; // 15px
-  }
-}
+// @media (max-width:1080px) {
+//   html{
+//       font-size: 93.75%; // 15px
+//   }
+// }
 
-@media (max-width:720px) {
-  html{
-      font-size: 87.5%; // 14px
-  }
-}
+// @media (max-width:720px) {
+//   html{
+//       font-size: 87.5%; // 14px
+//   }
+// }
 
-
-
-main {
-  display: flex;
-}
+// main {
+//   display: flex;
+// }
 
 body {
-  position: absolute;
+
+  height: 100%;
+  width: 100%;
+  // position: absolute;
   background-attachment: fixed;
-  background-image: radial-gradient(130.01% 300% at 100% -50%, #000000 35%, #434343 140%)
+  background-image: radial-gradient(130.01% 300% at 100% -50%, #000000 35%, #434343 140%);
 }

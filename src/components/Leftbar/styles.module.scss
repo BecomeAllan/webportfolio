@@ -36,3 +36,36 @@
     // filter: invert(0%) saturate(100%) brightness(99%) contrast(100%);
   }
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+
+    .home {
+      margin: 0;
+      display: none;
+      // line-height: 0.8em;
+      // font-size: 1em;
+      // letter-spacing: 0.04em;
+    }
+    
+    .sources {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+      width: 100%;
+      margin: 0;
+      
+      a img {
+        margin: 0 10px;
+        width: 2.5rem;
+        filter: invert(100%) saturate(100%) brightness(99%) contrast(100%);
+      }
+    }
+  }
+  
+}
