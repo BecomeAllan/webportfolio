@@ -2,10 +2,11 @@
   display: flex;
   justify-content: center;
   // grid-template-columns: 60% 40%;
-  margin: 0 20px;
+  margin: 0 100px 0 100px;
+
   .about {
     // grid-column: 1;
-    width: 100%;
+    width: 70%;
     margin-top: 50px;
     // margin-right: 100px;
     display: grid;
@@ -16,14 +17,14 @@
       color: #fff;
     }
     h2 {
-      word-break: break-all;
+      // word-break: break-all;
       color: rgb(131, 131, 131);
     }
     h3 {
       color: rgb(75, 75, 75);
     }
     p {
-      word-break: break-all;
+      // word-break: break-all;
       text-align: justify;
       padding-right: 10px;
       margin-top: 5px;
@@ -75,7 +76,7 @@
       width: auto;
       grid-row: 1;
       grid-column: 2;
-      margin-right: 35px;
+      margin-right: 0;
 
       & > .line {
         width: 55%;
@@ -93,6 +94,7 @@
       }
     }
     .contactCard {
+      // width: 100%;
       display: flex;
       flex-direction: column;
       // align-content: center;
@@ -231,7 +233,7 @@
   .container {
     .about {
       // grid-column: 1;
-      width: 100%;
+      // width: 100%;
       margin-top: 50px;
       // margin-right: 100px;
       display: grid;
@@ -343,7 +345,7 @@
     .about {
       grid-row: 3;
       width: auto;
-      margin: 50px;
+      margin: 50px 0;
       // margin-right: 100px;
       display: flex;
       flex-direction: column;
@@ -354,7 +356,7 @@
         color: #fff;
       }
       h2 {
-        word-break: break-all;
+        // word-break: break-all;
         color: rgb(131, 131, 131);
       }
       h3 {
@@ -385,6 +387,7 @@
       }
 
       .experienceCard {
+        padding: 0 50px;
         grid-row: 1;
         grid-column: 1;
         margin: 0;
@@ -408,6 +411,8 @@
         }
       }
       .curseCard {
+        padding: 0 50px;
+
         height: 300px;
         grid-row: 2;
         grid-column: 1;
@@ -423,6 +428,7 @@
         }
       }
       .contactCard {
+        width: 100%;
         .line {
           margin: 5px 0;
           background-color: #000;

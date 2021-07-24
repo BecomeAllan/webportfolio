@@ -1,5 +1,5 @@
 import api from "axios"
-import {baseUrl, prefix} from '../../services/apis.js'
+import { baseUrl, prefix } from '../../services/apis.js'
 
 import { GetStaticProps } from 'next'
 
@@ -33,10 +33,16 @@ export default function Home({ infos }: HomeProps) {
         </title>
       </Head>
       <div className={styles.home}>
-        <h3>HI, I’AM</h3>
-        <h2>ALLAN</h2>
-        <p>I'm a stats student who loves code and math, which provides innovative ideas about our world. </p>
-        <h1>programming <br /> skills</h1>
+        
+        <div className={styles.textMain}>
+          <h3>HI, I’AM</h3>
+          <h2>ALLAN</h2>
+          <p>I'm a stats student who loves code and math, which provides innovative ideas about our world. </p>
+        </div>
+
+        <div className={styles.subtext}>
+          <h1>programming<br />skills</h1>
+        </div>
       </div>
 
       <div className={styles.skill}>
@@ -67,7 +73,7 @@ export default function Home({ infos }: HomeProps) {
                 {text}
                 < br />
                 < br />
-              </span> 
+              </span>
             )
           })}
 
