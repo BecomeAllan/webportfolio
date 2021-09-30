@@ -35,7 +35,13 @@ export function MdCard({ selectedData }: Mdcard) {
       const re = /\!\[\w+\]\(|<img src\=\"/gm;
 
       const md = await fetch(`https://raw.githubusercontent.com/BecomeAllan/${title}/${branchSelected}/README.md`)
-      var mdText = await md.text()
+      // console.log(md.status)
+
+      if (md.status === 200) {
+        var mdText = await md.text()
+      } else {
+        var mdText = "Content not provided." 
+      }
 
       const mat = mdText.match(re)
 
