@@ -5,10 +5,13 @@ import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
+import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
+
 
 import gfm from 'remark-gfm'
 import { useEffect, useState } from 'react'
 import { prefix } from '../../../services/apis'
+import agate from 'react-syntax-highlighter/dist/esm/styles/hljs/agate'
 
 type Mdcard = {
   selectedData: selectedCard
@@ -88,7 +91,27 @@ export function MdCard({ selectedData }: Mdcard) {
             <ReactMarkdown className={styles.md}
               remarkPlugins={[gfm, remarkMath]}
               rehypePlugins={[rehypeKatex, rehypeRaw]}
-              children={readme} />
+              components={{
+                code({node, inline, className, children, ...props}) {
+                  const match = /language-(\w+)/.exec(className || '')
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      children={String(children).replace(/\n$/, '')}
+                      style={agate}
+                      language={match[1]}
+                      PreTag="div"
+                      wrapLongLines ={true}
+                      {...props}
+                    />
+                  ) : (
+                    <code className={styles.code} {...props}>
+                      {children}
+                    </code>
+                  )
+                }
+              }}
+              children={readme}
+               />
           </div>
         </div>
       </div>

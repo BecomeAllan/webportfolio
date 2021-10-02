@@ -10,7 +10,7 @@ async function GetRepos() {
   const reposList = await repos.json()
 
   
-  Promise.all(
+  const repo = Promise.all(
     reposList.map(async (repo) => {
 
       const rep = {
@@ -32,8 +32,12 @@ async function GetRepos() {
         console.error(err)
       }
       console.log("Deu bom")
+      return repos
     })
   })
+
+  repo.map(()=>{})
+
 }
 
 GetRepos()
