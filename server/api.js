@@ -9,10 +9,10 @@ function compare( a, b ) {
   a = a.updated_at.split('/').reverse().join('')
   b = b.updated_at.split('/').reverse().join('')
 
-  if ( a < b ){
+  if ( a > b ){
     return -1;
   }
-  if ( a > b ){
+  if ( a < b ){
     return 1;
   }
   return 0;
