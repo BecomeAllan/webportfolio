@@ -5,9 +5,24 @@ const { format, parseISO } = require('date-fns')
 const ptBR = require('date-fns/locale/pt-BR')
 
 
+function compare( a, b ) {
+  a = a.updated_at.split('/').reverse().join('')
+  b = b.updated_at.split('/').reverse().join('')
+
+  if ( a < b ){
+    return -1;
+  }
+  if ( a > b ){
+    return 1;
+  }
+  return 0;
+}
+
+
 async function GetRepos() {
   const repos = await fetch(reposUrl)
   const reposList = await repos.json()
+  // console.log(reposList);
 
   
   const repo = Promise.all(
@@ -26,8 +41,8 @@ async function GetRepos() {
       return rep
     })
   ).then(repos => {
-    console.log(repos)
-    fs.writeFile('./server/repos.json', JSON.stringify(repos), 'utf8', err => {
+    // console.log(repos)
+    fs.writeFile('./server/repos.json', JSON.stringify(repos.sort(compare)), 'utf8', err => {
       if (err) {
         console.error(err)
       }
