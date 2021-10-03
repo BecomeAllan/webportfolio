@@ -1,5 +1,6 @@
 import api from "axios"
 import { baseUrl, prefix } from '../../../services/apis'
+import { useRouter } from 'next/router'
 
 const { createFilter } = require('javascript-search-input')
 
@@ -10,7 +11,7 @@ import Head from 'next/head'
 
 import styles from './project.module.scss'
 import { MdCard } from '../../components/MdCard'
-import { GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 // import marked from "marked";
 
 
@@ -24,7 +25,6 @@ type ProjectProps = {
   pagedata: repoDataProps
   reposList: repoDataProps[]
 }
-
 export type repoDataProps = {
   id: number,
   languages: string[],
@@ -37,15 +37,28 @@ export type repoDataProps = {
   show: boolean
 }
 
-export default function Project({ reposList, pagedata}: ProjectProps) {
+export default function Project({ reposList, pagedata}: ProjectProps ) {
+
+  const router = useRouter()
+  // console.log(pagedata);
+
+  // const element = array[index];
+  // if (router.isFallback) {
+  //   // console.log("AQUIIIII");
+  //   return <div>Loading...</div>;
+  // } 
+
+
   const [selected, setSelected] = useState(pagedata.id)
-  // const [languages, setLanguages] = useState(["languages"])
-  // const [date, setDate] = useState("00/00/00")
-  // const [title, setTitle] = useState("Title")
-  // const [description, setDescription] = useState("Description...")
-  // const [Url, setUrl] = useState("/")
-  // const [branchSelected, setBranchSelected] = useState("main")
-  // const [htags, setHTags] = useState(["#Tags"])
+  // const [languages, setLanguages] = useState(pagedata.languages)
+  // const [date, setDate] = useState(pagedata.updated_at)
+  // const [title, setTitle] = useState(pagedata.name)
+  // const [description, setDescription] = useState(pagedata.description)
+  // const [Url, setUrl] = useState(pagedata.html_url)
+  // const [branchSelected, setBranchSelected] = useState(pagedata.default_branch)
+  // const [htags, setHTags] = useState(pagedata.tags)
+
+
 
   // const [search, setSearch] = useState('')
   function useFilter({ keys, data }: filter) {
@@ -71,8 +84,9 @@ export default function Project({ reposList, pagedata}: ProjectProps) {
     html_url,
     tags
   }: repoDataProps) {
-    return
-    // setSelected(id)
+
+    // console.log("foi");
+    setSelected(id)
     // setLanguages(languages)
     // setDate(updated_at)
     // setTitle(name)
@@ -92,7 +106,27 @@ export default function Project({ reposList, pagedata}: ProjectProps) {
     htags: pagedata.tags,
     branchSelected: pagedata.default_branch
   }
-  
+
+  // const dataMdcard = {
+  //   selected,
+  //   languages,
+  //   date,
+  //   title,
+  //   description,
+  //   Url,
+  //   htags,
+  //   branchSelected
+  // }
+
+
+  var named = router.query.proj
+  // console.log(named);
+
+  // reposList.map(repo => {
+  //   if (repo.name === named) {
+  //     funSelected(repo)
+  //   }
+  // })
 
   return (
 
@@ -100,13 +134,14 @@ export default function Project({ reposList, pagedata}: ProjectProps) {
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossOrigin="anonymous" />
         <title>
-          BecomeAllan | Project
+          BecomeAllan | {named}
         </title>
+
       </Head>
 
       <div className={styles.mardkdown}>
 
-      <MdCard selectedData={dataMdcard} />
+        <MdCard selectedData={dataMdcard} />
       </div>
       <div className={styles.search}>
         <div className={styles.searchTag}>
@@ -173,13 +208,11 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
   const reposList: repoDataProps[] = repos.data
 
-  pagedata=reposList[0]
-
-  // for (const repo of reposList) {
-  //   if (repo.name === params.proj) {
-  //     pagedata = repo
-  //   }
-  // }
+  for (const repo of reposList) {
+    if (repo.name === params.proj) {
+      pagedata = repo
+    }
+  }
   // console.log(data)
   // var reposList = params
   // var reposList = params.data
@@ -191,5 +224,25 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
       reposList,
       pagedata
     }
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+
+  const repos = await api.get(baseUrl + '/server/repos.json')
+
+  const reposList = repos.data
+
+  const paths = reposList.map((repo: any) => {
+    return {
+      params: {
+        proj: repo.name
+      }
+    }
+  })
+
+  return {
+    paths,
+    fallback: false
   }
 }

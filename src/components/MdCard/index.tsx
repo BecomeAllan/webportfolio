@@ -31,9 +31,11 @@ type selectedCard = {
 export function MdCard({ selectedData }: Mdcard) {
   const [readme, setReadme] = useState('')
 
+  // console.log(selectedData);
   const { Url, date, title, description, languages, htags, branchSelected, selected } = selectedData
 
-  useEffect(() => {
+  // console.log(object);
+  // useEffect(() => {
     async function load() {
       const re = /\!\[\w+\]\(|<img src\=\"/gm;
 
@@ -58,10 +60,10 @@ export function MdCard({ selectedData }: Mdcard) {
       return setReadme(mdText)
     }
 
+  //   load()
+  //   // console.log("MUDEI aq Md");
+  // }, [selected])
     load()
-    // console.log("MUDEI aq Md");
-  }, [selected])
-
   return (
     <div className={styles.project}>
 
