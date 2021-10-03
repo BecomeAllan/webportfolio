@@ -169,7 +169,11 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
   // console.log(pagedata);
 
-  const repos = await api.get(baseUrl + '/server/repos.json')
+  const repos = await api.get(baseUrl + '/server/repos.json', {
+    params: {
+      _sort: 'updated_at',
+      _order: 'desc',
+    }})
 
   const reposList: repoDataProps[] = repos.data
 
