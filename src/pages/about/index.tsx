@@ -184,10 +184,10 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
 export const getStaticProps: GetStaticProps = async () => {
   // const data = await fetch("baseUrl + /README.md").then(res => res.text())
   // const data = await res.text()
-  // const about = await api.get(baseUrl + '/server/about.json')
-  const about = await api.get("http://localhost:3000/about")
-  // const aboutData = about.data.about
-  const aboutData = about.data
+  const about = await api.get(baseUrl + '/server/about.json')
+  // const about = await api.get("http://localhost:3000/about")
+  const aboutData = about.data.about
+  // const aboutData = about.data
   // console.log(about.data);
 
   const weebbookData = [{}]
