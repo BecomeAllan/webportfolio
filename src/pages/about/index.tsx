@@ -63,50 +63,61 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
       </Head>
 
       <div className={styles.about}>
+        
         <div className={styles.experienceCard}>
           <h1>EXPERIENCE</h1>
           <div className={styles.line} />
 
+          <div className={styles.CardCountainer}>
 
-          {experiences?.map((exp: About, indx) => {
-            return (
-              <div
-                className={styles.experience}
-                key={indx}>
-                <a href={exp.ref}>
-                  
-                <div className={styles.topInfo}>
-                  <h2>{exp.place}</h2>
-                  <h3>{exp.date}</h3>
+            {experiences?.map((exp: About, indx) => {
+              return (
+                <div
+                  className={styles.experience}
+                  key={indx}>
+                  <a href={exp.ref}>
+
+                    <div className={styles.topInfo}>
+                      <h2>{exp.place}</h2>
+                      <h3>{exp.date}</h3>
+                    </div>
+                    <p>{exp.description}</p>
+                  </a>
+
+                  <div className={styles.line} />
                 </div>
-                <p>{exp.description}</p>
-                </a>
+              )
+            })}
 
-                <div className={styles.line} />
-              </div>
-            )
-          })}
-
+          </div>
         </div>
 
         <div className={styles.curseCard}>
           <h1>COURSE</h1>
           <div className={styles.line} />
 
-          {curses?.map((curse: About, indx) => {
-            return (
-              <div
-                className={styles.curse}
-                key={indx}>
-                <div className={styles.topInfo}>
-                  <h2>{curse.place}</h2>
-                  <h3>{curse.date}</h3>
+          <div className={styles.CardCountainer}>
+
+            {curses?.map((curse: About, indx) => {
+              return (
+                <div
+                  className={styles.curse}
+                  key={indx}>
+                  <a href={curse.ref}>
+
+                    <div className={styles.topInfo}>
+                      <h2>{curse.place}</h2>
+                      <h3>{curse.date}</h3>
+                    </div>
+                    <p>{curse.description}</p>
+                  </a>
+
+                  <div className={styles.line} />
                 </div>
-                <p>{curse.description}</p>
-                <div className={styles.line} />
-              </div>
-            )
-          })}
+              )
+            })}
+
+          </div>
         </div>
         <div className={styles.contactCard}>
           <h1>CONTACT</h1>
@@ -134,6 +145,7 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
 
           </div>
         </div>
+
       </div>
 
       <div className={styles.Vline}></div>
@@ -172,9 +184,10 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
 export const getStaticProps: GetStaticProps = async () => {
   // const data = await fetch("baseUrl + /README.md").then(res => res.text())
   // const data = await res.text()
-  const about = await api.get(baseUrl + '/server/about.json')
-  // const about = await api.get("http://localhost:3000/about")
-  const aboutData = about.data.about
+  // const about = await api.get(baseUrl + '/server/about.json')
+  const about = await api.get("http://localhost:3000/about")
+  // const aboutData = about.data.about
+  const aboutData = about.data
   // console.log(about.data);
 
   const weebbookData = [{}]

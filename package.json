@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "server": "node server/api.js"
+    "server": "node server/api.js",
+    "live_server": "json-server server/about.json -w -d 10 -p 3000"
   },
   "dependencies": {
     "axios": "^0.21.1",

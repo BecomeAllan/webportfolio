@@ -47,6 +47,11 @@
       }
     }
 
+    .CardCountainer {
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+
     .experienceCard {
       min-width: 300px;
       grid-row: 1;
@@ -60,8 +65,6 @@
       }
 
       .experience {
-        max-height: 300px;
-        overflow-y: scroll;
         & > .line {
           margin-bottom: 20px;
           background-color: #3e3e3e;
@@ -84,9 +87,8 @@
         height: 3px;
       }
 
+      
       .curse {
-        max-height: 300px;
-        overflow-y: scroll;
         & > .line {
           margin-bottom: 20px;
           background-color: #3e3e3e;
@@ -96,6 +98,7 @@
     }
     .contactCard {
       // width: 100%;
+      // margin-top: 50px;
       display: flex;
       flex-direction: column;
       // align-content: center;
@@ -350,6 +353,7 @@
       // margin-right: 100px;
       display: flex;
       flex-direction: column;
+      // justify-content: space-evenly;
       // grid-template-columns: auto;
       // grid-template-rows: 1fr 1fr 1fr;
 
@@ -388,12 +392,13 @@
       }
 
       .experienceCard {
-        padding: 0 50px;
+        padding: 0px 50px;
+        // margin: 100px 0px;
         grid-row: 1;
         grid-column: 1;
-        margin: 0;
+        margin: 10px 0 30px 0;
 
-        height: 300px;
+        // height: 300px;
 
         & > .line {
           margin: 5px 0;
@@ -403,10 +408,10 @@
         }
 
         .experience {
-          height: 240px;
-          overflow-y: scroll;
+          // height: 240px;
+          // overflow-y: scroll;
           & > .line {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             background-color: #3e3e3e;
             height: 2px;
             width: 25%;
@@ -418,10 +423,10 @@
       .curseCard {
         padding: 0 50px;
 
-        height: 300px;
+        // height: 300px;
         grid-row: 2;
         grid-column: 1;
-        margin: 0;
+        margin: 10px 0 50px 0;
 
         & > .line {
           margin: 5px 0;
@@ -431,9 +436,10 @@
         }
 
         .curse {
-          height: 240px;
-          overflow-y: scroll;
+          // height: 240px;
+          // overflow-y: scroll;
           & > .line {
+            margin-bottom: 10px;
             background-color: #3e3e3e;
             height: 2px;
             width: 25%;

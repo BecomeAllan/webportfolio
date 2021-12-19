@@ -43,7 +43,11 @@ async function GetRepos() {
         description: repo.description,
         default_branch: repo.default_branch,
         html_url: repo.html_url,
-        show: !dont.includes(rep['name'])
+        show: !dont.includes(repo.name)
+      }
+
+      if (repo['fork']) {
+        rep['show'] = false 
       }
 
 
@@ -59,9 +63,6 @@ async function GetRepos() {
       return repos
     })
   })
-
-  repo.map(()=>{})
-
 }
 
 GetRepos()
