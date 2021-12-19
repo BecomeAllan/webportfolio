@@ -3,15 +3,17 @@
     "experiences": [
       {
         "place": "",
-        "date": "00/00/00/",
-        "description": "Nenhuma experiencia"
+        "date": "00/00/00",
+        "description": "Nenhuma experiencia",
+        "ref": "/"
       }
     ],
     "curses": [
       {
         "place": "alguns lugares",
         "date": "00/00/00",
-        "description": "Aprendendo sobre deeplearning"
+        "description": "Aprendendo sobre deeplearning",
+        "ref": "/"
       }
     ]
   }

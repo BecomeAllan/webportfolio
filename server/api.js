@@ -5,6 +5,12 @@ const { format, parseISO } = require('date-fns')
 const ptBR = require('date-fns/locale/pt-BR')
 
 
+var dont = [
+  "Non-linear-system",
+  "Calc-Probab-2",
+  "saeb-me2-tf"
+]
+
 function compare( a, b ) {
   a = a.updated_at.split('/').reverse().join('')
   b = b.updated_at.split('/').reverse().join('')
@@ -24,6 +30,7 @@ async function GetRepos() {
   const reposList = await repos.json()
   // console.log(reposList);
 
+
   
   const repo = Promise.all(
     reposList.map(async (repo) => {
@@ -36,8 +43,10 @@ async function GetRepos() {
         description: repo.description,
         default_branch: repo.default_branch,
         html_url: repo.html_url,
-        show: true
+        show: !dont.includes(rep['name'])
       }
+
+
       return rep
     })
   ).then(repos => {
@@ -46,7 +55,7 @@ async function GetRepos() {
       if (err) {
         console.error(err)
       }
-      console.log("Deu bom")
+      // console.log("Deu bom")
       return repos
     })
   })

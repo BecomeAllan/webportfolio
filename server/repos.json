@@ -1,1 +1,93 @@
-[{"id":406538652,"languages":["Python"],"updated_at":"03/10/21","name":"S2Search","description":"Search is a query paper used to collect data from Semantic Scholar.","default_branch":"main","html_url":"https://github.com/BecomeAllan/S2Search","show":true},{"id":383265954,"languages":["SCSS","TypeScript","JavaScript"],"updated_at":"03/10/21","name":"webportfolio","description":"This is my personal web page","default_branch":"main","html_url":"https://github.com/BecomeAllan/webportfolio","show":true},{"id":274834851,"languages":[],"updated_at":"29/08/21","name":"Non-linear-system","description":"Nonlinear problem solving written in R.","default_branch":"master","html_url":"https://github.com/BecomeAllan/Non-linear-system","show":true},{"id":389437129,"languages":["TeX","CSS"],"updated_at":"27/07/21","name":"Calc-Probab-2","description":null,"default_branch":"main","html_url":"https://github.com/BecomeAllan/Calc-Probab-2","show":true},{"id":365459262,"languages":["Jupyter Notebook"],"updated_at":"26/07/21","name":"RNN","description":"Resumo sobre o comportamento de RNN do básico a aplicações básicas sobre sua funcionalidade.","default_branch":"main","html_url":"https://github.com/BecomeAllan/RNN","show":true},{"id":327505902,"languages":["TypeScript","Java","CSS","HTML","JavaScript"],"updated_at":"21/07/21","name":"dsdeliver","description":"Projeto da semana do devsuperior2.0","default_branch":"main","html_url":"https://github.com/BecomeAllan/dsdeliver","show":true},{"id":339253288,"languages":["TeX","R","Python"],"updated_at":"16/02/21","name":"saeb-me2-tf","description":null,"default_branch":"main","html_url":"https://github.com/BecomeAllan/saeb-me2-tf","show":true}]
+[
+  {
+    "id": 406538652,
+    "languages": [
+      "Python"
+    ],
+    "updated_at": "03/10/21",
+    "name": "S2Search",
+    "description": "Search is a query paper used to collect data from Semantic Scholar.",
+    "default_branch": "main",
+    "html_url": "https://github.com/BecomeAllan/S2Search",
+    "show": false
+  },
+  {
+    "id": 383265954,
+    "languages": [
+      "SCSS",
+      "TypeScript",
+      "JavaScript"
+    ],
+    "updated_at": "03/10/21",
+    "name": "webportfolio",
+    "description": "This is my personal web page",
+    "default_branch": "main",
+    "html_url": "https://github.com/BecomeAllan/webportfolio",
+    "show": true
+  },
+  {
+    "id": 274834851,
+    "languages": [],
+    "updated_at": "29/08/21",
+    "name": "Non-linear-system",
+    "description": "Nonlinear problem solving written in R.",
+    "default_branch": "master",
+    "html_url": "https://github.com/BecomeAllan/Non-linear-system",
+    "show": true
+  },
+  {
+    "id": 389437129,
+    "languages": [
+      "TeX",
+      "CSS"
+    ],
+    "updated_at": "27/07/21",
+    "name": "Calc-Probab-2",
+    "description": null,
+    "default_branch": "main",
+    "html_url": "https://github.com/BecomeAllan/Calc-Probab-2",
+    "show": true
+  },
+  {
+    "id": 365459262,
+    "languages": [
+      "Jupyter Notebook"
+    ],
+    "updated_at": "26/07/21",
+    "name": "RNN",
+    "description": "Resumo sobre o comportamento de RNN do básico a aplicações básicas sobre sua funcionalidade.",
+    "default_branch": "main",
+    "html_url": "https://github.com/BecomeAllan/RNN",
+    "show": true
+  },
+  {
+    "id": 327505902,
+    "languages": [
+      "TypeScript",
+      "Java",
+      "CSS",
+      "HTML",
+      "JavaScript"
+    ],
+    "updated_at": "21/07/21",
+    "name": "dsdeliver",
+    "description": "Projeto da semana do devsuperior2.0",
+    "default_branch": "main",
+    "html_url": "https://github.com/BecomeAllan/dsdeliver",
+    "show": true
+  },
+  {
+    "id": 339253288,
+    "languages": [
+      "TeX",
+      "R",
+      "Python"
+    ],
+    "updated_at": "16/02/21",
+    "name": "saeb-me2-tf",
+    "description": null,
+    "default_branch": "main",
+    "html_url": "https://github.com/BecomeAllan/saeb-me2-tf",
+    "show": true
+  }
+]

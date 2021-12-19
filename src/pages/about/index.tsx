@@ -11,7 +11,8 @@ import { GetStaticProps } from "next"
 type About = {
   place: string,
   date: string,
-  description: string
+  description: string,
+  ref: string
 }
 
 type aboutDataProps = {
@@ -72,11 +73,15 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
               <div
                 className={styles.experience}
                 key={indx}>
+                <a href={exp.ref}>
+                  
                 <div className={styles.topInfo}>
                   <h2>{exp.place}</h2>
                   <h3>{exp.date}</h3>
                 </div>
                 <p>{exp.description}</p>
+                </a>
+
                 <div className={styles.line} />
               </div>
             )
@@ -102,8 +107,6 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
               </div>
             )
           })}
-
-
         </div>
         <div className={styles.contactCard}>
           <h1>CONTACT</h1>
