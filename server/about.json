@@ -2,6 +2,12 @@
   "about": {
     "experiences": [
       {
+        "place": "MCTI (Ministério da Ciência, Tecnologia e Inovações)",
+        "date": "02/2022 - currently",
+        "description": "Research assistant.",
+        "ref": "https://www.gov.br/mcti/pt-br"
+      },
+      {
         "place": "LAMFO (Laboratório de Aprendizado de Máquina em Finanças e Organizações)",
         "date": "08/2021 - currently",
         "description": "Research assistant in software development and deep learning.",
