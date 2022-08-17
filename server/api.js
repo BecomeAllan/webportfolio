@@ -8,7 +8,13 @@ const ptBR = require('date-fns/locale/pt-BR')
 var dont = [
   "Non-linear-system",
   "Calc-Probab-2",
-  "saeb-me2-tf"
+  "saeb-me2-tf",
+  "upload_test",
+  "ARL_trab",
+  "Bert_automation_SLR",
+  "MCTI-scrap",
+  "webportfolio",
+  "dsdeliver"
 ]
 
 function compare( a, b ) {
