@@ -140,7 +140,7 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
             <div className={styles.contactContainer}>
               <h2>Phone</h2>
               <div className={styles.line} />
-              <p>+555(61) 98490-3246</p>
+              <p>+55(61) 98490-3246</p>
             </div>
 
           </div>
