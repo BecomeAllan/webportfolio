@@ -127,13 +127,13 @@ export default function About({ aboutData, weebbookData }: aboutProps) {
             <div className={styles.contactContainer}>
               <h2>Email</h2>
               <div className={styles.line} />
-              <p>allan.filesia@gmail.com</p>
+              <p>becomeallan@gmail.com</p>
             </div>
 
             <div className={styles.contactContainer}>
               <h2>Address</h2>
               <div className={styles.line} />
-              <p>BRAZIL, Brasília</p>
+              <p>BRAZIL, Brasília - DF</p>
             </div>
 
 
